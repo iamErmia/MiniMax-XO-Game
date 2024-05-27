@@ -5,7 +5,7 @@ body {
   align-items: center;
   margin: 0px;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-color: #FFBF00;
 }
 
 #game {
@@ -15,6 +15,7 @@ body {
 #status {
   font-size: 25px;
   margin-bottom: 25px;
+  color: #D10363;
 }
 
 .board {
@@ -26,17 +27,19 @@ body {
 .cell {
   width: 100px;
   height: 100px;
+  border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 35px;
-  background-color: #fff;
-  border: 2px solid #000;
+  background-color: #FFBF00;
+  border: 3px solid #D10363;
   cursor: pointer;
 }
 
-.cell :hover {
-    background-color: #f1f1f1;
+.cell:hover{
+    background-color: #FF9A00;
+    transition-duration: 300ms;
 }
 
 #reset-button{
@@ -44,4 +47,14 @@ body {
     padding: 10px 20px;
     font-size: 15px;
     cursor: pointer;
+    color: #808836;
+    border-radius: 5px;
+    border: 2px solid #808836;
+    background-color: #FFBF00;
+}
+
+#reset-button:hover{
+    background-color: #808836;
+    color: #FFBF00;
+    transition-duration: 300ms;
 }
