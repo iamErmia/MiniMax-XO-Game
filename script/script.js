@@ -39,10 +39,55 @@ function cellClicked() {
     }
 }
 
-function restartGame(){}
+function restartGame(){
+    currentPlayer = "X";
+    options = ["", "", "", "", "", "", "", "", ""];
+    statusText.textContent = `${currentPlayer}'s turn!`;
+    cells.forEach(cell => cell.textContent = "");
+    running = true;
+}
 
-function updateCell(){}
+function updateCell(cell, index){
+    options[index] = currentPlayer;
+    cell.textContent = currentPlayer;
+}
 
-function checkWinner(){}
+function changePlayer(){
+    currentPlayer = (currentPlayer === "X") ? "O" : "X";
+    statusText.textContent = `${currentPlayer}'s turn`;
+}
+
+function checkWinner(){
+    let roundWin = false;
+
+    for(let i = 0; i < winCondition.length; i++){
+        condition = winCondition[i];
+        let cellA = options[condition[0]];
+        let cellB = options[condition[1]];
+        let cellC = options[condition[2]];
+
+        if(cellA === "" || cellB === "" || cellC === ""){
+            continue;
+        }
+
+        if(cellA === cellB && cellB === cellC && cellA === cellC){
+            roundWin = true;
+            break;
+        }
+    }
+
+    if(roundWin){
+        statusText.textContent = `Player ${currentPlayer} won this round!`;
+        running = false;
+
+    } else if(!options.includes("")){
+        statusText.textContent = `Draw!`;
+        running = false;
+
+    } else {
+        changePlayer();
+    }
+    
+}
 
 function computerMove(){}
